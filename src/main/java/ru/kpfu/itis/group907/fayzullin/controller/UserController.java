@@ -5,12 +5,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.kpfu.itis.group907.fayzullin.model.User;
 import ru.kpfu.itis.group907.fayzullin.repository.UserRepository;
 import ru.kpfu.itis.group907.fayzullin.service.UserService;
 
-import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 @Controller
 public class UserController {
@@ -34,9 +35,11 @@ public class UserController {
     // - Profiles -
 
     @GetMapping("/user/{id}")
-    @ResponseBody
-    public User getUser(@PathVariable Integer id) {
-        return userRepository.findById(id).get();
+    public String getUser(Model model, @PathVariable int id) {
+        User user = userRepository.findById(id).get();
+        model.addAttribute("user", user);
+
+        return "profile";
     }
 
     @GetMapping("/user")
@@ -45,24 +48,14 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    //    @PostMapping("/register")
-    //    @ResponseBody
-    //    public User createUser(@RequestParam String params) throws IOException {
-    //        User user = objectMapper.readValue(params, User.class);
-    //        return userRepository.save(user);
-    //    }
-
-    @RequestMapping(value = "/register", method = RequestMethod.POST, produces = "application/json")
-    public String signUp(@RequestBody @ModelAttribute User user, HttpServletRequest request) {
-        userService.signUp(user, request.getRequestURL().toString().replace(request.getServletPath(), ""));
-        return "sign_up_success";
-    }
-
     // - Registration -
 
-    @GetMapping("/sign_in")
-    public String login() {
-        return "login";
+    @PostMapping("/register")
+    @ResponseBody
+    public String createUser(@RequestBody @ModelAttribute User user) throws IOException {
+        user.setPassword(encoder.encode(user.getPassword()));
+        userRepository.save(user);
+        return "TRUE";
     }
 
     @GetMapping("/register")
@@ -72,20 +65,8 @@ public class UserController {
 
     // - Login -
 
+    @GetMapping("/sign_in")
+    public String login() {
+        return "loginPage";
+    }
 }
-
-
-//    @RequestMapping(value = "/register", method = RequestMethod.POST, produces = "application/json")
-//    public String signUp(@RequestBody @ModelAttribute User user, HttpServletRequest request) {
-//        userService.signUp(user, request.getRequestURL().toString().replace(request.getServletPath(), ""));
-//        return "sign_up_success";
-//    }
-//
-//    @GetMapping("/verify")
-//    public String verify(@Param("code") String code) {
-//        if (true /*userService.verify(code)*/) {
-//            return "verification_success";
-//        } else {
-//            return "verification_failed";
-//        }
-//    }

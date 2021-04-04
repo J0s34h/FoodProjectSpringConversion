@@ -18,13 +18,15 @@
                         <div class="form-group row">
                             <label for="surname" class="col-sm-2 col-form-label">Фамилия</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="surname" placeholder="Например Иванов" required>
+                                <input type="text" class="form-control" id="surname" placeholder="Например Иванов"
+                                       required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="userLogin" class="col-sm-2 col-form-label">Логин</label>
+                            <label for="email" class="col-sm-2 col-form-label">Почта</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="userLogin" placeholder="Например Login323" required>
+                                <input type="text" class="form-control" id="email" placeholder="Например test@gmail.com"
+                                       required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -59,26 +61,34 @@
         $(document).ready(function () {
             console.log("Documents is ready")
             $('#login').click(function () {
-                let login = $('#userLogin').val();
+                let email = $('#email').val();
                 let pwd = $('#password').val();
                 let pwdRep = $('#passwordRep').val();
                 let name = $('#name').val();
                 let surname = $('#surname').val();
-                $.ajax({
-                    type: "POST",
-                    url: "/register",
-                    data: {"login": login, "rawPassword": pwd, "passwordRep": pwdRep, "name": name, "surname": surname},
-                    success: function (data) {
-                        if (data === 'TRUE') {
-                            $(location).attr('href', '/index');
-                        } else {
-                            alert('Fail....');
+
+                if (pwd !== pwdRep) {
+                    alert("PASSWORD MISMATCH")
+                } else {
+                    console.log("Sending ajax request")
+                    $.ajax({
+                        type: "POST",
+                        url: "/register",
+                        data: {name: name, lastname: surname, email: email, password: pwd},
+                        success: function (result) {
+                            console.log("Received callback")
+                            if (result === "TRUE") {
+                                alert('SUCCESS');
+                                $(location).attr('href', '/ ');
+                            } else {
+                                alert('Fail....');
+                            }
+                        },
+                        fail: function (error) {
+                            print(error)
                         }
-                    },
-                    fail: function (error) {
-                        print(error)
-                    }
-                });
+                    });
+                }
             });
         });
     </script>

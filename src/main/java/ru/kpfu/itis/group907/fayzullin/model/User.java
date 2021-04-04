@@ -41,6 +41,14 @@ public class User {
     )
     private Set<Role> roles;
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setRoles(Set<Role> role) {
+        this.roles = role;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -57,7 +65,27 @@ public class User {
         return roles;
     }
 
-    public void setPassword(String encodedPassword) {
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
     }
 }

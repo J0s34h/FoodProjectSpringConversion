@@ -11,7 +11,7 @@
         <link type="text/css" rel="stylesheet" href="/css/bootstrap.css">
 
         <link type="text/css" rel="stylesheet" href="/css/index.css">
-        <#--        <link rel="icon" href="favicon-film.png">-->
+        <link rel="icon" href="/favicon-film.png">
 
         <meta charset="utf-8">
     </head>
@@ -41,11 +41,11 @@
     <div class="navbar navbar-dark bg-dark">
         <div class="container d-flex justify-content-between">
             <a href="#" class="navbar-brand d-flex align-items-center">
-                <img class="icon-img" src="favicon-film.png" width="40px" height="40px" alt="Icon">
+                <img class="icon-img" href="/favicon-film.png" width="40px" height="40px" alt="Icon">
                 <strong class="logo">Рецепты ООО</strong>
                 <a class="nav-link" href="/">Главная<span class="sr-only">(current)</span></a>
-                <!--                <a class="nav-link" href="#">Жанры</a>-->
                 <a class="nav-link" href="/user">Профиль</a>
+
                 <a class="nav-link" href="/register">Регистрация</a>
                 <a class="nav-link" href="/sign_in">Авторизация</a>
                 <a class="nav-link" href="/recipe">Добавить рецепт</a>

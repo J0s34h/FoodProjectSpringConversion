@@ -16,6 +16,22 @@ public class Recipe {
     @Column(nullable = false)
     private String title;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setRecipeOwner(int recipeOwner) {
+        this.recipeOwner = recipeOwner;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
     @Column(nullable = false)
     private String text;
 

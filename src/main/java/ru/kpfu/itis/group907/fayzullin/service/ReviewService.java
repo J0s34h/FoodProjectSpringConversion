@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import ru.kpfu.itis.group907.fayzullin.model.Review;
 import ru.kpfu.itis.group907.fayzullin.repository.ReviewRepository;
 
+import java.util.List;
+
 @Service
 public class ReviewService {
     private final ReviewRepository reviewRepository;
@@ -18,7 +20,7 @@ public class ReviewService {
         return reviewRepository.findById(id);
     }
 
-    public Review findByRecipeId(int recipeId) {
+    public List<Review> findByRecipeId(int recipeId) {
         return reviewRepository.findByRecipeId(recipeId);
     }
 

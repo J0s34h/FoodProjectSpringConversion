@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import ru.kpfu.itis.group907.fayzullin.model.Image;
 import ru.kpfu.itis.group907.fayzullin.model.Recipe;
 import ru.kpfu.itis.group907.fayzullin.repository.ImageRepository;
@@ -15,9 +12,7 @@ import ru.kpfu.itis.group907.fayzullin.repository.RecipeRepository;
 import ru.kpfu.itis.group907.fayzullin.service.ImageService;
 import ru.kpfu.itis.group907.fayzullin.service.RecipeService;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class MainController {
@@ -50,6 +45,8 @@ public class MainController {
         }
 
         model.addAttribute("recipes", recipes);
+
+
 
         return "index";
     }

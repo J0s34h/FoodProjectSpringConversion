@@ -19,11 +19,11 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="/images/${recipe.id}/${recipe.thumbnail}" class="d-block w-100" alt="...">
+                            <img src="/image/${recipe.id}/${recipe.thumbnail}" class="d-block w-100" alt="...">
                         </div>
                         <#list images as image >
                             <div class="carousel-item">
-                                <img src="${image.getPath()}" class="d-block w-100" alt="...">
+                                <img src="/image/${recipe.id}/${image.name}" class="d-block w-100" alt="...">
                             </div>
                         </#list>
                     </div>
@@ -45,11 +45,9 @@
 
             </div>
             <div class="comments">
-                <#--                <form action="/review?id=${recipe.id}" method="post">-->
-                <form>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Rating</label>
-                        <select id="rating" name="rating" class="form-control" id="exampleFormControlSelect1">
+                        <label for="rating">Rating</label>
+                        <select id="rating" name="rating" class="form-control">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -58,9 +56,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Текст Сообщения</label>
-                        <textarea id="messageFiled" name="message" class="form-control" id="exampleFormControlTextarea1"
-                                  rows="5"></textarea>
+                        <label for="messageFiled">Текст Сообщения
+                        </label><textarea id="messageFiled" name="message" class="form-control" rows="5"></textarea>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-10">
@@ -68,7 +65,6 @@
                         </div>
                     </div>
                     <input type="hidden" id="recipeId" value="${recipe.id}">
-                </form>
                 <h3 class="title-comments">Отзывы (6)</h3>
                 <ul id="comments" class="media-list">
                     <!-- Комментарий (уровень 1) -->
@@ -94,39 +90,25 @@
 </#macro>
 <script>
     $(document).ready(function () {
-
         console.log("Documents is ready")
         $('#sendReview').click(function () {
             let rating = $('#rating').val();
             let messageFiled = $('#messageFiled').val();
             let recipeId = $('#recipeId').val();
 
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/review');
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.send('rating=' + rating + '&message=' + messageFiled + '&recipeId=' + recipeId);
-
-            let resppnse = xhr.response;
-            console.log(resppnse)
-
-
-            // $.ajax({
-            //     type: "POST",
-            //     url: "/review?id=" + recipeId,
-            //     data: {"rating": rating, "message": messageFiled, "recipeId": recipeId},
-            //     success: function (data) {
-            //         if (data === 'TRUE') {
-            //
-            //             $('#comments').append(messageFiled)
-            //
-            //         } else {
-            //             alert('Fail....');
-            //         }
-            //
-            //
-            //     }
-            // });
+            $.ajax({
+                type: "POST",
+                url: "/createReview",
+                data: {"rating": rating, "message": messageFiled, "recipeId": recipeId},
+                success: function (data) {
+                    if (data === 'TRUE') {
+                        $('#comments').append(messageFiled)
+                        $('#comments').append("</br>")
+                    } else {
+                        alert('Fail....');
+                    }
+                }
+            });
         });
     });
 </script>

@@ -12,13 +12,13 @@
                         <div class="form-group row">
                             <label for="name" class="col-sm-2 col-form-label">Название Рецепта</label>
                             <div class="col-sm-10">
-                                <input name="title" type="text" class="form-control" id="name" placeholder="Например Хлеб" required>
+                                <input name="title" type="text" class="form-control" id="title" placeholder="Например Хлеб" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="surname" class="col-sm-2 col-form-label">Шаги рецепта</label>
                             <div class="col-sm-10">
-                                <textarea name="text" type="text" class="form-control" id="surname" placeholder="Описание Вашего Рецепта"
+                                <textarea name="text" type="text" class="form-control" id="text" placeholder="Описание Вашего Рецепта"
                                           required rows="6"></textarea>
                             </div>
                         </div>

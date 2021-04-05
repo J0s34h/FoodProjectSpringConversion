@@ -1,7 +1,6 @@
 package ru.kpfu.itis.group907.fayzullin.controller;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -20,16 +19,12 @@ public class UserController {
     private final UserService userService;
     private final BCryptPasswordEncoder encoder;
 
-    private final ObjectMapper objectMapper;
-
 
     @Autowired
     public UserController(UserRepository userRepository, UserService userService, BCryptPasswordEncoder encoder) {
         this.userRepository = userRepository;
         this.userService = userService;
         this.encoder = encoder;
-
-        this.objectMapper = new ObjectMapper();
     }
 
     // - Profiles -

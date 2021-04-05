@@ -6,37 +6,39 @@ ru/kpfu/itis/group907/fayzullin/service/RecipeService.java
  ru.kpfu.itis.group907.fayzullin.service.RecipeService
 ru/kpfu/itis/group907/fayzullin/model/Recipe.java
  ru.kpfu.itis.group907.fayzullin.model.Recipe
+ru/kpfu/itis/group907/fayzullin/model/User.java
+ ru.kpfu.itis.group907.fayzullin.model.User
 ru/kpfu/itis/group907/fayzullin/controller/RecipeController.java
  ru.kpfu.itis.group907.fayzullin.controller.RecipeController
-ru/kpfu/itis/group907/fayzullin/controller/ReviewController.java
- ru.kpfu.itis.group907.fayzullin.controller.ReviewController
 ru/kpfu/itis/group907/fayzullin/controller/MainController.java
  ru.kpfu.itis.group907.fayzullin.controller.MainController
 ru/kpfu/itis/group907/fayzullin/model/Image.java
  ru.kpfu.itis.group907.fayzullin.model.Image
-ru/kpfu/itis/group907/fayzullin/service/ReviewService.java
- ru.kpfu.itis.group907.fayzullin.service.ReviewService
+ru/kpfu/itis/group907/fayzullin/repository/UserRepository.java
+ ru.kpfu.itis.group907.fayzullin.repository.UserRepository
 ru/kpfu/itis/group907/fayzullin/security/CustomUserDetails.java
  ru.kpfu.itis.group907.fayzullin.security.CustomUserDetails
-ru/kpfu/itis/group907/fayzullin/model/User.java
- ru.kpfu.itis.group907.fayzullin.model.User
-ru/kpfu/itis/group907/fayzullin/model/Review.java
- ru.kpfu.itis.group907.fayzullin.model.Review
-ru/kpfu/itis/group907/fayzullin/repository/ReviewRepository.java
- ru.kpfu.itis.group907.fayzullin.repository.ReviewRepository
 ru/kpfu/itis/group907/fayzullin/Application.java
  ru.kpfu.itis.group907.fayzullin.Application
-ru/kpfu/itis/group907/fayzullin/repository/RecipeRepository.java
- ru.kpfu.itis.group907.fayzullin.repository.RecipeRepository
-ru/kpfu/itis/group907/fayzullin/service/ImageService.java
- ru.kpfu.itis.group907.fayzullin.service.ImageService
+ru/kpfu/itis/group907/fayzullin/config/SecurityConfig.java
+ ru.kpfu.itis.group907.fayzullin.config.SecurityConfig
+ru/kpfu/itis/group907/fayzullin/helpers/ImageHelper.java
+ ru.kpfu.itis.group907.fayzullin.helpers.ImageHelper
 ru/kpfu/itis/group907/fayzullin/security/CustomUserDetailsService.java
  ru.kpfu.itis.group907.fayzullin.security.CustomUserDetailsService
 ru/kpfu/itis/group907/fayzullin/service/UserService.java
  ru.kpfu.itis.group907.fayzullin.service.UserService
-ru/kpfu/itis/group907/fayzullin/repository/UserRepository.java
- ru.kpfu.itis.group907.fayzullin.repository.UserRepository
-ru/kpfu/itis/group907/fayzullin/config/SecurityConfig.java
- ru.kpfu.itis.group907.fayzullin.config.SecurityConfig
 ru/kpfu/itis/group907/fayzullin/controller/UserController.java
  ru.kpfu.itis.group907.fayzullin.controller.UserController
+ru/kpfu/itis/group907/fayzullin/repository/RecipeRepository.java
+ ru.kpfu.itis.group907.fayzullin.repository.RecipeRepository
+ru/kpfu/itis/group907/fayzullin/service/ImageService.java
+ ru.kpfu.itis.group907.fayzullin.service.ImageService
+ru/kpfu/itis/group907/fayzullin/repository/ReviewRepository.java
+ ru.kpfu.itis.group907.fayzullin.repository.ReviewRepository
+ru/kpfu/itis/group907/fayzullin/model/Review.java
+ ru.kpfu.itis.group907.fayzullin.model.Review
+ru/kpfu/itis/group907/fayzullin/service/ReviewService.java
+ ru.kpfu.itis.group907.fayzullin.service.ReviewService
+ru/kpfu/itis/group907/fayzullin/controller/ReviewController.java
+ ru.kpfu.itis.group907.fayzullin.controller.ReviewController

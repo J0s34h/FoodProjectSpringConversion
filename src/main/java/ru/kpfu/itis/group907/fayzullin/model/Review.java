@@ -22,6 +22,22 @@ public class Review {
     @Column(nullable = false)
     private int recipeId;
 
+    public void setRating(byte rating) {
+        this.rating = rating;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public void setRecipeId(int recipeId) {
+        this.recipeId = recipeId;
+    }
+
     public int getId() {
         return id;
     }
